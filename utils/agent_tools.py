@@ -8,6 +8,7 @@ from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 from langchain_community.utilities.tavily_search import TavilySearchAPIWrapper
 from langchain_core.tools import Tool
 
+from tools.tiers import get_place_info
 from utils.config_llms import Config
 from utils.memory_tools import setup_memory
 
@@ -38,9 +39,11 @@ def setup_agent() -> AgentExecutor:
     llm_math_chain = LLMMathChain.from_llm(llm=cfg.llm, verbose=False)
 
     tools = [
-
-
-
+        Tool(
+            name="LocalisezSite",
+            func=get_place_info,
+            description="Obtenir la localisation maps et les heures d'ouvertures d'un lieu à partir de son nom"
+        ),
         Tool(name="Search", func=search.run,
              description="Effectue des recherches sur des informations générales, répondant aux questions spécifiques des touristes, idéal pour approfondir des connaissances sur des sites  ."),
         Tool(name="GoogleSearch", func=search.run,
@@ -52,7 +55,7 @@ def setup_agent() -> AgentExecutor:
         Tool(name="DallE", func=dalle.run,
              description="Génère des images et illustrations personnalisées pour enrichir les guides et présentations touristiques du Bénin."),
         Tool(name="YouTube", func=youtube.run,
-             description="Fournit des vidéos informatives sur des sites touristiques, offrant une expérience immersive et éducative."),
+             description="Fournir des vidéos informatives sur des sites touristiques, offrant une expérience immersive et éducative."),
         Tool(name="Calculator", func=llm_math_chain.run,
              description="Propose des outils de calcul pratique pour les conversions de monnaie et de mesure, essentiels pour les touristes en déplacement."),
         Tool(name="Wikipedia", func=wikipedia.run,
@@ -64,7 +67,7 @@ def setup_agent() -> AgentExecutor:
     return initialize_agent(
         tools,
         cfg.llm,
-        agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        agent=AgentType.OPENAI_FUNCTIONS,
         verbose=True,
         agent_kwargs=agent_kwargs,
         memory=memory
