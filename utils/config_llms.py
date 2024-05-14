@@ -8,4 +8,4 @@ class Config():
     Contains the configuration of the LLM.
     """
     model = 'gpt-3.5-turbo-16k-0613'
-    llm = ChatOpenAI(temperature=0.1, model=model)
+    llm = ChatOpenAI(temperature=0, model=model)

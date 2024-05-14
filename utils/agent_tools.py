@@ -64,7 +64,7 @@ def setup_agent() -> AgentExecutor:
     return initialize_agent(
         tools,
         cfg.llm,
-        agent=AgentType.OPENAI_FUNCTIONS,
+        agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
         verbose=True,
         agent_kwargs=agent_kwargs,
         memory=memory

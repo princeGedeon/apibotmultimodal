@@ -3,13 +3,26 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 
 class AgentOutput(BaseModel):
-    text: Optional[str] = Field(None, description="Réponse textuelle de l'agent")
-    image_link: Optional[List[str]] = Field(None, description="Lien vers une image générée par l'agent")
-    sources: Optional[List[str]] = Field(default_factory=list, description="Liste des sources référencées par l'agent")
-    video_link: Optional[str] = Field(None, description="Lien vers une vidéo liée à la réponse de l'agent")
-    response: Optional[str] = Field(None, description="Réponse générale de l'agent")
+    """
+    Modèle Pydantic pour structurer la sortie de l'agent.
 
+    Attributs:
+    - text: Réponse textuelle générée par l'agent.
+    - image_link: Liste des liens vers les images générées par l'agent.
+    - sources: Liste des sources référencées par l'agent dans sa réponse.
+    - video_link: Lien vers une vidéo liée à la réponse de l'agent.
+    - response: Réponse générale de l'agent, incluant potentiellement une combinaison de texte, liens d'images, et vidéos.
+    """
+    text: Optional[str] = Field(None, description="Réponse textuelle de l'agent")
+    image_link: Optional[List[str]] = Field(None, description="Liens vers des images générées par l'agent avec parameters ")
+    sources: Optional[List[str]] = Field(default_factory=list, description="Liste des sources référencées par l'agent")
+    video_link: Optional[List[str]] = Field(None, description="Liste de lien vers une vidéo liée à la réponse de l'agent")
+    response: Optional[str] = Field(None, description="Réponse générale de l'agent")
+    maps_link:Optional[List[str]] = Field(None,description="Liens google maps urls avec cid")
     def to_dict(self):
+        """
+        Convertit le modèle Pydantic en dictionnaire pour une utilisation facile.
+        """
         return {
             "text": self.text,
             "image_link": self.image_link,
@@ -18,6 +31,5 @@ class AgentOutput(BaseModel):
             "response": self.response
         }
 
-
-# Initialize the output parser with the Pydantic model
+# Initialisation du parseur de sortie avec le modèle Pydantic
 agent_output_parser = PydanticOutputParser(pydantic_object=AgentOutput)

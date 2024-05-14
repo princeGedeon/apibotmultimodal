@@ -29,10 +29,17 @@ while True:
 
 # Parle moi de Béhanzin
 # Je suis interressé par l'hisoire des rois du Bénin, quelles sont les sites je peux visiter'
-# Je suis interressée par le site touristique Toffa à porto novo, C'est situé oû? Et qui contactez pour planifiez ma visite
-# Quels sont les hotels et restaurant près de cite, quel jours me conseillerais tu pour ma visite?
-
+# Je suis interressée par le site touristique Toffa. C'est situé oû? Et qui contactez pour planifiez ma visite
+# Quels sont les hotels et restaurant près de ce cite, quel jours me conseillerais tu pour ma visite?
+# quels jours me conseillerais tu pour ma visite en fonction des condition météorologique
 
 ## Pipeline audio fon/yoruba ------------> texte français
-
 ### Pipeline text français----------> audio fon/yoruba
+
+#-- touriste local | toursite étranger |
+
+## Facile la mobilité, Bénin diversité au Bénin, barriere pour connaitre l'histoire,
+## d'apprendre des mots clés
+## amazone, agodji, héritage, valoriser
+
+## autotchtone, toursime n'est plsu reservé ceux qui comprends juste le français
