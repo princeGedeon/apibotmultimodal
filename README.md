@@ -1,6 +1,6 @@
 Voici une version améliorée du README.md pour votre projet "botmultimodal" :
 
-```markdown
+
 # botmultimodal
 
 Ce projet permet de créer un bot multimodal pour diverses applications interactives.
@@ -48,5 +48,5 @@ Vous pouvez ensuite accéder à l'application en utilisant votre navigateur web 
 
 ## Utilisation
 
-Après avoir démarré le serveur, vous pouvez interagir avec le bot multimodal selon les instructions spécifiques de votre application. N'hésitez pas à consulter la documentation supplémentaire ou les fichiers de configuration pour des détails sur les fonctionnalités disponibles.
+Après avoir dégmarré le serveur, vous pouvez interagir avec le bot multimodal selon les instructions spécifiques de votre application. N'hésitez pas à consulter la documentation supplémentaire ou les fichiers de configuration pour des détails sur les fonctionnalités disponibles.
 Accéder à la page de notre documentation `http://127.0.0.1:8000/docs`
