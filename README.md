@@ -1,7 +1,4 @@
-Voici une version améliorée du README.md pour votre projet "botmultimodal" :
-
-
-# botmultimodal
+# Api botmultimodal
 
 Ce projet permet de créer un bot multimodal pour diverses applications interactives.
 
