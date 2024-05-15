@@ -28,7 +28,8 @@ while True:
         print(f"Error: {e}")
 
 # Parle moi de Béhanzin
-# Je suis interressé par l'hisoire des rois du Bénin, quelles sont les sites je peux visiter'
+# Montre moi un film qui parle de l'amazone
+# Je suis interressé par l'histoire des rois du Bénin, quelles sont les sites je peux visiter'
 # Je suis interressée par le site touristique Toffa. C'est situé oû? Et qui contactez pour planifiez ma visite
 # Quels sont les hotels et restaurant près de ce cite, quel jours me conseillerais tu pour ma visite?
 # quels jours me conseillerais tu pour ma visite en fonction des condition météorologique

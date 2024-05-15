@@ -8,7 +8,7 @@ from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 from langchain_community.utilities.tavily_search import TavilySearchAPIWrapper
 from langchain_core.tools import Tool
 
-from tools.tiers import get_place_info
+from tools.tiers import get_place_info, search_images_from_text
 from utils.config_llms import Config
 from utils.memory_tools import setup_memory
 
@@ -40,12 +40,17 @@ def setup_agent() -> AgentExecutor:
 
     tools = [
         Tool(
+            name="RechercheImages",
+            func=search_images_from_text,
+            description="Recherche des images sur Internet à partir d'un texte donné. Retourne une liste de liens d'images et leurs sources. Paramètres: 'query' (str) pour le texte à rechercher, 'n' (int) pour le nombre de résultats à retourner (par défaut 5)."
+        ),
+        Tool(
             name="LocalisezSite",
             func=get_place_info,
             description="Obtenir la localisation maps et les heures d'ouvertures d'un lieu à partir de son nom"
         ),
         Tool(name="Search", func=search.run,
-             description="Effectue des recherches sur des informations générales, répondant aux questions spécifiques des touristes, idéal pour approfondir des connaissances sur des sites  ."),
+             description="Effectue des recherches sur des informations générales, répondant aux questions spécifiques des touristes, idéal pour approfondir des connaissances sur des sites .Ne cherche pas des images ."),
         Tool(name="GoogleSearch", func=search.run,
              description="Réalise des recherches approfondies  pour fournir des informations détaillées sur le Bénin, aidant à explorer sa riche histoire et culture."),
         Tool(name="GooglePlaces", func=gplace.run,

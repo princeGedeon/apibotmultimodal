@@ -2,6 +2,7 @@
 from dotenv import load_dotenv
 from langchain.agents import AgentExecutor
 from langchain.chains.llm import LLMChain
+from langchain_anthropic import AnthropicLLM
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 
@@ -28,7 +29,10 @@ if __name__=="__main__":
 
 
 
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", )
+    #llm = ChatOpenAI(temperature=0.5 )
+    model = 'gpt-3.5-turbo-16k-0613'
+    # model="gpt-4-turbo"
+    llm = ChatOpenAI(temperature=0.1, model=model)
     chain = LLMChain(llm=llm, prompt=summary_prompt_template)
 
 
